@@ -1,0 +1,26 @@
+﻿@model ASP_Final.Models.AboutFeatured
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Title)
+        @Html.TextBoxFor(a => a.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Title, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Content)
+        @Html.TextAreaFor(a => a.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Content, null, new { @class = "text-danger" })
+    </div>
+
+    <input type="submit" class="btn btn-outline-success" value="Edit" />
+    <a href="/Admin/FeaturedTitle/Index" class="btn btn-outline-primary">Back To List</a>
+</form>

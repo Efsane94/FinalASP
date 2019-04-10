@@ -1,0 +1,29 @@
+﻿
+@model ASP_Final.Models.ViewModel.CF_VM
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<form method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(f => f.Furniture.Name)
+        @Html.TextBoxFor(f => f.Furniture.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(f => f.Furniture.Price)
+        @Html.TextBoxFor(f => f.Furniture.Price, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(f => f.Furniture.Category.Name)
+        @Html.DropDownListFor(m => m.Furniture.CategoryId, Model.Categories, new { @class = "form-control" })
+    </div>
+    <input type="submit" class="btn btn-outline-success" value="Create" />
+    <a href="/Admin/Furniture/Index" class="btn btn-outline-primary">Back To List</a>
+</form>
+

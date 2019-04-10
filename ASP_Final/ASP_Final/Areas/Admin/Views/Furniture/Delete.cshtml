@@ -1,0 +1,27 @@
+﻿@model ASP_Final.Models.Furniture
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-12 my-5">
+            <form method="post">
+                @Html.AntiForgeryToken()
+                <div class="alert alert-danger">
+                    Are you sure to delete this furniture???
+                </div>
+                <div class="Model">
+                    <h3>@Model.Name</h3>
+                    <label>Category Name:</label>
+                    <h2>@Model.Category.Name</h2>
+                    <h2>@Model.Price</h2>
+                    <input type="submit" class="btn btn-outline-danger btn-block" value="let's do that" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

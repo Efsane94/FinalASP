@@ -1,0 +1,27 @@
+﻿@model ASP_Final.Models.ViewModel.F_Images_Vm
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(f => f.Image.Furniture.Name)
+        @Html.DropDownListFor(m => m.Image.FurnitureId, Model.Furnitures, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Image.Photo)
+        @Html.TextBoxFor(m => m.Image.Photo, new { @class = "form-control", type = "file" })
+        @Html.ValidationMessageFor(m => m.Image.Photo, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Current Image:</label>
+        <img src="~/Assets/img/@Model.Image.Name" style="height:80px; object-fit:contain" />
+    </div>
+    <input type="submit" class="btn btn-outline-success" value="Edit" />
+    <a href="/Admin/Images/Index" class="btn btn-outline-primary">Back To List</a>
+</form>
+

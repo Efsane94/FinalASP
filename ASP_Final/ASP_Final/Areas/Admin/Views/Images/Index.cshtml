@@ -1,0 +1,36 @@
+﻿@model List<ASP_Final.Models.Image>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<a href="Create" class="btn btn-primary" style="margin-bottom:20px;">Create New</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="font-size:18px; font-weight:bold;">Image</th>
+            <th style="font-size:18px; font-weight:bold;">Furniture</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var image in Model)
+        {
+        <tr>
+            <td>
+                <img src="~/Assets/img/@image.Name" alt="Alternate Text" style="width:200px; height:100px;"/>
+            </td>
+            <td style="font-size:16px; font-weight:500;">@image.Furniture.Name</td>
+            <td>
+                <a href="/Admin/Images/Edit/@image.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+            </td>
+            <td>
+                <a href="/Admin/Images/Delete/@image.Id" class="btn btn-danger"><i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+

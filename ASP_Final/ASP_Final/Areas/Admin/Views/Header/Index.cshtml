@@ -1,0 +1,20 @@
+﻿@model ASP_Final.Models.Header
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Header</h2>
+
+<div class="container">
+    <div class="col-md-12">
+        <div class="row">
+            <img src="~/Assets/img/@Model.Image" alt="Alternate Text" style="width:100%; height:400px;" />
+
+            <h2 style="margin-top:20px;">@Html.Raw(Model.Title)</h2>
+            <p style="font-size:17px; margin-top:15px;">@Model.Content</p>
+        </div>
+        <a class="btn btn-warning btn-block" href="/Admin/Header/Edit" style="margin-top:40px;"><i class="fas fa-edit"></i></a>
+    </div>
+</div>
+

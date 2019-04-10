@@ -1,0 +1,39 @@
+﻿@model List<ASP_Final.Models.Furniture>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<a href="/Admin/Furniture/Create" class="btn btn-primary" style="margin-bottom:15px;">Create New</a>
+<table class="table">
+   
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category Name</th>
+                <th>Edit </th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var furniture in Model)
+            {
+            <tr>
+                <td style="font-size:16px;">@furniture.Name</td>
+                <td style="font-size:16px;">@furniture.Price</td>
+                <td style="font-size:16px;">@furniture.Category.Name</td>
+                <td>
+                    <a href="/Admin/Furniture/Edit/@furniture.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                </td>
+                <td>
+                    <a href="/Admin/Furniture/Delete/@furniture.Id" class="btn btn-danger"><i class="fas fa-user-times"></i></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    
+</table>
+
+

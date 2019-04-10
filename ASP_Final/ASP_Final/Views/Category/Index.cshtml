@@ -1,0 +1,130 @@
+﻿@model ASP_Final.Models.ViewModel.FurnitureCategory_VM
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="banner_area" >
+    <div class="banner_inner d-flex align-items-center" style="background: url(/Assets/img/furniture/backg.jpg); height:100%; min-height: 500px">
+        <div class="container">
+            <div class="banner_content text-center">
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================Category Product Area =================-->
+<section class="cat_product_area section_gap">
+    <div class="container-fluid">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-9">
+                <div class="product_top_bar">
+                    
+                    
+                </div>
+                <div class="latest_product_inner row">
+
+                    @foreach (var cat in Model.Furnitures)
+                    {
+                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="f_p_item">
+                                <div class="f_p_img">
+                                    <img class="img-fluid" src="~/Assets/img/product/feature-product/f-p-4.jpg" alt="">
+                                    <div class="p_icon">
+                                        <a href="#">
+                                            <i class="lnr lnr-heart"></i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="lnr lnr-cart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <h4>Long Sleeve TShirt</h4>
+                                </a>
+                                <h5>$150.00</h5>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="left_sidebar_area">
+                    <aside class="left_widgets cat_widgets">
+                        <div class="l_w_title">
+                            <h3>Categories</h3>
+                        </div>
+                        <div class="widgets_inner">
+                            <ul class="list" id="list">
+                                @foreach (var category in ViewBag.categoryName
+                                    )
+                                {
+                                    <li class="cat" id="@category.Id">
+                                        <a>@category.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </aside>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <nav class="cat_page mx-auto" aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">01</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">02</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">03</a>
+                    </li>
+                    <li class="page-item blank">
+                        <a class="page-link" href="#">...</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">09</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+<!--================End Category Product Area =================-->
+<!--================ Subscription Area ================-->
+@section scripts{
+    <script>
+        var cat = document.querySelector(".cat");
+        $(function () {
+            $(document).on("click", ".cat", function () {
+                var id = $(this).attr("id");
+                var http = new XMLHttpRequest();
+
+                http.onreadystatechange = function () {
+                    if (http.readyState === 4 && http.status === 200) {
+                        console.log(id);
+                    }
+                }
+
+                http.open("GET", "", true);
+                http.send();
+            })
+        })
+        
+    </script>
+    }

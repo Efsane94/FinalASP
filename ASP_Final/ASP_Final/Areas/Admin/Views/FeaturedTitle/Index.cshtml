@@ -1,0 +1,25 @@
+﻿@model ASP_Final.Models.AboutFeatured
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="font-size:18px; font-weight:bold;">Title</th>
+            <th style="font-size:18px; font-weight:bold;">Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="font-size:16px; font-weight:500;">@Model.Title</td>
+            <td style="font-size:16px; font-weight:500;">@Model.Content</td>
+        </tr>
+    </tbody>
+</table>
+<a href="/Admin/FeaturedTitle/Edit" class="btn btn-warning btn-block" style="margin-top:25px;"><i class="fas fa-edit"></i></a>
+
+
+

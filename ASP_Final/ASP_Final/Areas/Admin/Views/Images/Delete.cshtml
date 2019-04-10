@@ -1,0 +1,27 @@
+﻿@model ASP_Final.Models.Image
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-12 my-5">
+            <form method="post">
+                @Html.AntiForgeryToken()
+                <div class="alert alert-danger">
+                    Are you sure to delete this category???
+                </div>
+                <div class="Model">
+                    <h3>@Model.Name</h3>
+                    <img src="~/Assets/img/@Model.Name" alt="Alternate Text"  style="width:300px; height:100px;"/>
+                    <input type="submit" class="btn btn-outline-danger btn-block" value="let's do that" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
